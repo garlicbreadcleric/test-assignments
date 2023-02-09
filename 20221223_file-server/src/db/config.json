@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "root",
+    "password": "fileserver",
+    "database": "fileserver",
+    "host": "mysql",
+    "dialect": "mysql"
+  }
+}

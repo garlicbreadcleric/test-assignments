@@ -1,0 +1,50 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    volumes:
+      - ./files:/app/files
+      - ./migrations:/app/migrations
+      - ./dist:/app/dist
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: issuetracker
+      MYSQL_DATABASE: issuetracker
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+
+  # Development
+
+  migrate:
+    build: .
+    depends_on:
+      - mysql
+    volumes:
+      - ./dist:/app/dist
+      - ./migrations:/app/migrations
+    command: "npm run migrate"
+  migrate-again:
+    build: .
+    depends_on:
+      - mysql
+    volumes:
+      - ./dist:/app/dist
+      - ./migrations:/app/migrations
+    command: "npm run migrate-again"
+  test:
+    build: .
+    depends_on:
+      - app
+    volumes:
+      - ./files:/app/files
+      - ./dist:/app/dist
+      - ./tests:/app/tests
+    command: "npm run test"
