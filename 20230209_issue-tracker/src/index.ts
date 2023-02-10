@@ -6,9 +6,6 @@ import { ApplicationError, ErrorCode, errorHttpCodes } from "./error";
 import router from "./router";
 import { commitTransaction, rollbackTransaction } from "./transaction";
 
-// const ajv = new Ajv({ coerceTypes: true, useDefaults: true, removeAdditional: true, allErrors: true });
-// ajvErrors(ajv);
-
 const fastify = Fastify({
   logger: true,
 });

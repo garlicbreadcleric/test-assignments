@@ -1,7 +1,6 @@
 import { FastifyInstance } from "fastify/types/instance";
-import { createMessage, getMessagesList } from "./db/clientMessage";
 
-import { ApplicationError, ErrorCode } from "./error";
+import { createMessage, getMessagesList } from "./db/clientMessage";
 import { getTransaction } from "./transaction";
 import { validate } from "./validation";
 
