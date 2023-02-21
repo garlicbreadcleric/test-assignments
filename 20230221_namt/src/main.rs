@@ -70,7 +70,9 @@ fn main() {
     .map(|s| s.parse().unwrap())
     .collect();
 
+  let mut result = 0;
   for _ in 0..10000 {
-    find_crumble(&numbers); // Some(14)
+    result += find_crumble(&numbers).unwrap(); // Some(14)
   }
+  println!("{result}");
 }
