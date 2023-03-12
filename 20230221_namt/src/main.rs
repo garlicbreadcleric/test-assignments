@@ -1,7 +1,10 @@
 #![warn(clippy::disallowed_types)]
 
-// use std::collections::HashMap;
+use mimalloc::MiMalloc;
 use rustc_hash::FxHashMap as HashMap;
+
+#[global_allocator]
+static GLOBAL: MiMalloc = MiMalloc;
 
 const MINE_SCALE: usize = 100;
 
