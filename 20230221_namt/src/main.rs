@@ -1,4 +1,7 @@
-use std::collections::HashMap;
+#![warn(clippy::disallowed_types)]
+
+// use std::collections::HashMap;
+use rustc_hash::FxHashMap as HashMap;
 
 const MINE_SCALE: usize = 100;
 
@@ -9,7 +12,7 @@ struct NumberMap {
 impl NumberMap {
   pub fn new() -> NumberMap {
     NumberMap {
-      map: HashMap::new(),
+      map: HashMap::default(),
     }
   }
 
